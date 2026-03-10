@@ -1,5 +1,4 @@
-Usecase 02- Build Fabric Data Agent using Mirrored Azure SQL Database in
-Microsoft Fabric
+## Usecase 02- Build Fabric Data Agent using Mirrored Azure SQL Database in Microsoft Fabric
 
 **Introduction**
 
@@ -83,8 +82,12 @@ in Fabric.
 
 1.  Open a browser go to +++https://portal.azure.com+++ and sign in with
     your cloud slice account below.
+    |   |   |
+    |---|---|
+    | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
+    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
 
-2.  From the Azure portal home page, click on **Azure portal
+3.  From the Azure portal home page, click on **Azure portal
     menu** represented by three horizontal bars on the left side of the
     Microsoft Azure command bar. Select SQL database
 
@@ -99,7 +102,18 @@ incorrect.](./media/image6.png)
     enter the below details to create a storage account and then click
     on **Next:Networking**
 
-[TABLE]
+| Setting | Value  |
+|--------|----------------|
+| Subscription | Select your subscription |
+| Resource group | Select your Resource group |
+| Database name | +++sqldatabaseXXXX+++ *(XXXX = last 4 digits of Lab Instance ID)* |
+| Server | Select **Create new** |
+| Server name | +++sqlserverXXXX+++ |
+| Location | Southeast Asia |
+| Server admin login | +++sqladmin+++ |
+| Password | `+++password321!+++` |
+| Confirm password | `+++password321!+++` |
+| Action | Click **OK** |
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image8.png)
@@ -200,7 +214,11 @@ reports.
     URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
     and sign in with your credentials
 
-[TABLE]
+    |  |   |
+    |---|----|
+    |Username	|+++@lab.CloudPortalCredential(User1).Username+++|
+    |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
+
 
 2.  Fabric home page, select **+New workspace** tile.
 
@@ -210,7 +228,12 @@ reports.
 3.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-[TABLE]
+| Property | Value |
+|---------|-------|
+| Name | +++FabricAgent-mirroringdatabase@lab.LabInstance.Id+++ |
+| Advanced | Under **License mode**, select **Fabric** |
+| Default storage format | Small dataset storage format |
+| Template apps | Check **Develop template apps** |
 
 > ![](./media/image30.png)
 
@@ -252,7 +275,12 @@ mirrored database, and validate that the data has synced successfully.
 3.  In Connection settings tab enter the below detail and click on
     Connect button
 
-[TABLE]
+| Field | Value |
+|------|-------|
+| Server | SQL server URL saved in **Task 2 → Step 15** |
+| Database | Enter your SQL database |
+| Username | +++sqladmin+++ |
+| Password | +++password321!+++ |
 
 ![](./media/image37.png)
 
@@ -287,12 +315,11 @@ respond to natural language prompts using the mirrored data.
 
 ![](./media/image43.png)
 
-3.  In the **Filter by item type** search box, enter **+++data
-    agent+++** and select the **Data agent.**
+3.  In the **Filter by item type** search box, enter **+++data agent+++** and select the **Data agent.**
 
 > ![](./media/image44.png)
 
-4.  Enter **+++FabricDataAgent** **@lab.LabInstance.Id+++** as the Data
+4.  Enter **+++FabricDataAgent@lab.LabInstance.Id+++** as the Data
     agent name and select **Create**.
 
 > ![](./media/image45.png)
@@ -311,11 +338,11 @@ respond to natural language prompts using the mirrored data.
 
 You will test the Data Agent by asking analytical questions like:
 
-- *Which product categories generate the highest sales?*
+- Which product categories generate the highest sales?
 
-- *List products with high list price but low sales volume.*
+- List products with high list price but low sales volume.
 
-- *Which cities have the highest number of customers?*
+- Which cities have the highest number of customers?
 
 This validates the agent’s ability to understand and respond to business
 queries.
@@ -323,7 +350,7 @@ queries.
 1.  Select the **SalesLT** schema for all tables.
 
 2.  In the query panel of your Fabric data agent, type the question
-    *+++***Which product categories generate the highest sales?+++** and
+    **+++Which product categories generate the highest sales?+++** and
     click the Send icon to view the agent’s response
 
 ![](./media/image49.png)
@@ -425,3 +452,4 @@ business insights.
 This use case highlights the power of combining **data mirroring and
 AI-powered data agents** to create interactive and intelligent data
 experiences within the Microsoft Fabric ecosystem.
+
