@@ -1,3 +1,4 @@
+## Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 
 Modern organizations generate large volumes of data across multiple
@@ -160,7 +161,10 @@ reports.
     URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
     and sign in with your credentials
 
-[TABLE]
+    |   |   |
+    |---|---|
+    | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
+    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
 
 2.  Fabric home page, select **+New workspace** tile.
 
@@ -170,7 +174,12 @@ reports.
 3.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-[TABLE]
+| Property | Value |
+|---------|-------|
+| Name | `+++Fabric agent@lab.LabInstance.Id+++` **(XXXXX can be Lab instance ID)** |
+| Advanced | Under **License mode**, select **Fabric** |
+| Default storage format | Small dataset storage format |
+| Template apps | Check **Develop template apps** |
 
 > ![](./media/image8.png)
 
@@ -202,8 +211,7 @@ solution.
 ## Task 3: Open development environment
 
 1.  Open your browser, navigate to the address bar, type or paste the
-    following URL: +++
-    https://github.com/technofocus-pte/agnticapp-for-unified-data+++
+    following URL: +++https://github.com/technofocus-pte/agnticapp-for-unified-data+++
 
 ![](./media/image13.png)
 
@@ -275,8 +283,8 @@ solution.
 
 8.  Select below values.
 
-- To create an environment for Azure resources,
-  enter <+++Fabricagent@lab.LabInstance.Id>+++
+- **To create an environment for Azure resources**,
+  enter **+++Fabricagent@lab.LabInstance.Id**+++
 
 - **Select an Azure Subscription to
   use** : **@lab.CloudSubscription.Name**
@@ -344,8 +352,7 @@ solution.
     the with your Fabric workspace Id created in the previous steps. The
     script will look like the following:
 
-+++bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh
-\<fabric-workspaceId\>+++
++++bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh <fabric-workspaceId>+++
 
 ![](./media/image43.png)
 
@@ -359,7 +366,7 @@ solution.
 
 ## Task 5: Review the Fabric Lakehouse and Data
 
-1.  Go to your +++https://app.fabric.microsoft.com/+++ workspace
+1.  Go to your +++**https://app.fabric.microsoft.com/**+++ workspace
 
 2.  Make sure resource got deployed successfully
 
@@ -378,7 +385,7 @@ solution.
 
 1.  To test the agent, run the following command in the terminal.
 
-+++ python scripts/08_test_agent.py+++
++++python scripts/08_test_agent.py+++
 
 > ![](./media/image50.png)
 
@@ -387,14 +394,13 @@ solution.
 
 > ![](./media/image51.png)
 
-+++**What constitutes a failed inspection?**+++
+**+++What constitutes a failed inspection?+++**
 
 ![](./media/image52.png)
 
 ![](./media/image53.png)
 
-+++Do any inspections violate quality control standards in our
-Inspection Procedures?+++
++++Do any inspections violate quality control standards in our Inspection Procedures?+++
 
 ![](./media/image54.png)
 
@@ -406,13 +412,14 @@ Inspection Procedures?+++
 
 ## Task 7: Create a Fabric data agent
 
-1.  Go to your +++ https://app.fabric.microsoft.com/+++ Microsoft Fabric
+1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
     workspace
 
 2.  Select "New item" → Search for "Data Agent" → select Data
-    agent![](./media/image57.png)
+    agent
+    ![](./media/image57.png)
 
-3.  Provide a name as <FabricDataAgent@lab.LabInstance.Id> and click
+4.  Provide a name as <FabricDataAgent@lab.LabInstance.Id> and click
     **Create**
 
 > ![](./media/image58.png)
@@ -432,9 +439,8 @@ Inspection Procedures?+++
 
 7.  Add the below agent instructions:
 
-> +++You are a helpful assistant that can answer user questions using
-> data. Support group by in GQL+++
->
+ +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
+
 > ![](./media/image63.png)
 >
 > ![](./media/image64.png)
@@ -467,7 +473,7 @@ Inspection Procedures?+++
 
 ![](./media/image72.png)
 
-+++ **Show tickets grouped by status**+++
++++**Show tickets grouped by status**+++
 
 ![](./media/image73.png)
 
@@ -501,9 +507,9 @@ Inspection Procedures?+++
 
 4.  Run the following command to set up app permissions
 
-> +++**python scripts/00_build_solution.py --from 09**+++
->
-> ![](./media/image79.png)
+ +++**python scripts/00_build_solution.py --from 09**+++
+
+ ![](./media/image79.png)
 
 5.  Press Enter to start configuration
 
@@ -526,7 +532,7 @@ Inspection Procedures?+++
 >
 > For Retail sales analysis use case:
 
-- Show total revenue by year for last 5 years as a line chart.
+ +++Show total revenue by year for last 5 years+++.
 
 > ![](./media/image85.png)
 >
@@ -616,44 +622,28 @@ please click on the **+ New agent** option to get it created.
 
 8.  Enter Instructions
 
-**You are a data assistant that analyzes inspection data stored in
-Microsoft Fabric.**
+```
+You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
 
-**Use the Fabric Lakehouse dataset to answer questions about inspection
-results and scores. The dataset includes the following columns:**
+Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
+- inspection_id: Unique identifier for each inspection
+- ticket_id: Identifier associated with the inspection ticket
+- result: Inspection outcome (Pass or Fail)
+- score: Numeric score assigned to the inspection
 
-**- inspection_id: Unique identifier for each inspection**
+You can analyze and summarize the data to provide insights such as:
+- Total number of inspections
+- Number of passed and failed inspections
+- Average, highest, and lowest inspection scores
+- Distribution of inspection results
+- Score trends across inspections or tickets
 
-**- ticket_id: Identifier associated with the inspection ticket**
-
-**- result: Inspection outcome (Pass or Fail)**
-
-**- score: Numeric score assigned to the inspection**
-
-**You can analyze and summarize the data to provide insights such as:**
-
-**- Total number of inspections**
-
-**- Number of passed and failed inspections**
-
-**- Average, highest, and lowest inspection scores**
-
-**- Distribution of inspection results**
-
-**- Score trends across inspections or tickets**
-
-**When responding:**
-
-**- Use the Fabric data source to retrieve accurate information.**
-
-**- Provide clear summaries and insights based on the inspection
-results.**
-
-**- When appropriate, suggest visualizations such as bar charts or pie
-charts to show pass vs fail distribution or score comparisons.**
-
-**- Ensure answers are concise, accurate, and based only on the
-available dataset.**
+When responding:
+- Use the Fabric data source to retrieve accurate information.
+- Provide clear summaries and insights based on the inspection results.
+- When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
+- Ensure answers are concise, accurate, and based only on the available dataset.
+```
 
 ![](./media/image102.png)
 
@@ -757,3 +747,4 @@ generated](./media/image110.png)
 > on a unified data platform can simplify data access, accelerate
 > analytics, and support faster, data-driven decision-making for both
 > technical and non-technical users.
+
