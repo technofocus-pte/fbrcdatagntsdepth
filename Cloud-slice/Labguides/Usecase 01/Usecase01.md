@@ -27,9 +27,9 @@ experiences across the organization.
 
 With the Lakehouse connected through the Fabric Data Agent, Contoso can
 now integrate the agent into analytics applications, Copilot
-experiences, and internal tools—empowering business users to ask
-questions like *“Show me today’s sales for the south region”* or
-*“Identify the lowest‑stock products across all stores”* and receive
+experiences, and internal tools-empowering business users to ask
+questions like *"Show me today's sales for the south region"* or
+*"Identify the lowest‑stock products across all stores"* and receive
 data‑driven answers instantly.
 
 **Objectives**
@@ -43,7 +43,7 @@ data‑driven answers instantly.
 - Create and configure a **Fabric Data Agent** connected to Lakehouse
   tables.
 
-- Improve the agent’s responses using **instructions and example
+- Improve the agent's responses using **instructions and example
   queries**.
 
 - Publish the agent and test it **programmatically via API calls**
@@ -57,28 +57,28 @@ data‑driven answers instantly.
     **Settings** and then click on **Settings** under **Best match**.
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
+> generated](./instructions337798/image1.png)
 
-2.  On Settings window, navigate and click on **Time & language**.
+2.  On Settings window, navigate and click on **Time & language**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+generated](./instructions337798/image2.png)
 
 3.  On **Time & language** page, navigate and click on **Date & time**.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+generated](./instructions337798/image3.png)
 
 4.  Scroll down and navigate to **Additional settings** section, then
-    click on **Syn now** button. It will take 3-5 minutes to syn.
+    click on **Sync now** button. It will take 3-5 minutes to sync.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+generated](./instructions337798/image4.png)
 
 5.  Close the **Settings** window.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+generated](./instructions337798/image5.png)
 
 ## Task 1: **Create a Fabric workspace**
 
@@ -89,12 +89,12 @@ throughout the use case.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL:+++https://app.fabric.microsoft.com/+++ then press
-    the **Enter** button.
+    the **Enter** button.
 
-![](./media/image6.png)
+![](./instructions337798/image6.png)
 
-2.  In the **Microsoft Fabric** window, enter your credentials, and
-    click on the **Submit** button.
+2.  In the **Microsoft Fabric** window, enter your credentials, and
+    click on the **Submit** button.
 
     |  |   |
     |---|----|
@@ -102,28 +102,22 @@ throughout the use case.
     |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image7.png)
+incorrect.](./instructions337798/image7.png)
 
-3.  Then, In the **Microsoft** window enter the password and click on
-    the **Sign in** button.
-
-> ![A login screen with a red box and blue text AI-generated content may
-> be incorrect.](./media/image8.png)
-
-4.  In **Stay signed in?** window, click on the **Yes** button.
+4.  In **Stay signed in?** window, click on the **Yes** button.
 
 &nbsp;
 
-5.  You’ll be directed to Power BI Home page.
+5.  You'll be directed to Power BI Home page.
 
-> ![](./media/image9.png)
+> ![](./instructions337798/image9.png)
 
-6.  Fabric home page, select **+New workspace** tile.
+6.  Fabric home page, select **+New workspace** tile.
 
-> ![](./media/image10.png)
+> ![](./instructions337798/image10.png)
 
-7.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
+7.  In the **Create a workspace** pane that appears on the right side,
+    enter the following details, and click on the **Apply** button.
 
 | Property | Value |
 |---------|-------|
@@ -132,20 +126,20 @@ incorrect.](./media/image7.png)
 | Default storage format | Small dataset storage format |
 | Template apps | Check **Develop template apps** |
 
-![](./media/image11.png)
+![](./instructions337798/image11.png)
 
-Note: To find your lab instant ID, select 'Help' and copy the instant
-ID.
+> [!note] To find your lab instant ID, select 'Help' and copy the instant
+ID. ![A screenshot of a computer Description automatically
+generated](./instructions337798/image12.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
 
-> ![](./media/image13.png)
+
+> ![](./instructions337798/image13.png)
 
 8.  Wait for the deployment to complete. It takes 1-2 minutes to
     complete.
 
-> ![](./media/image14.png)
+> ![](./instructions337798/image14.png)
 
 ## Task 2: Create a lakehouse with AdventureWorksLH
 
@@ -153,37 +147,37 @@ This task guides you through creating a new Lakehouse and populating it
 with AdventureWorks tables using a Fabric notebook. The Lakehouse
 becomes the structured data foundation that the Data Agent will query.
 
-1.  Create a new lakehouse by clicking on the **+New item** button in
+1.  Create a new lakehouse by clicking on the **+New item** button in
     the navigation bar.
 
-![](./media/image15.png)
+![](./instructions337798/image15.png)
 
 2.  Click on the "**Lakehouse**" tile.
 
-![](./media/image16.png)
+![](./instructions337798/image16.png)
 
-3.  In the **New lakehouse** dialog box,
-    enter +++**AdventureWorksLH+++** in the **Name** field, click on
-    the **Create** button and open the new lakehouse.
+3.  In the **New lakehouse** dialog box,
+    enter +++**AdventureWorksLH+++** in the **Name** field, click on
+    the **Create** button and open the new lakehouse.
 
-**Note**: Ensure to remove space before **AdventureWorksLH**
+**Note**: Ensure to remove space before **AdventureWorksLH**
 
-![](./media/image17.png)
+![](./instructions337798/image17.png)
 
-![](./media/image18.png)
+![](./instructions337798/image18.png)
 
-4.  You will see a notification stating **Successfully created SQL
+4.  You will see a notification stating **Successfully created SQL
     endpoint**.
 
-![](./media/image19.png)
+![](./instructions337798/image19.png)
 
 5.  Create a new notebook in the workspace where you want to create your
     Fabric data agent.
 
-> ![](./media/image20.png)
+> ![](./instructions337798/image20.png)
 
-6.  Update the code in the **cell** with the following code and click
-    on **▷ Run cell** that appears to the left of the cell.
+6.  Update the code in the **cell** with the following code and click
+    on **▷ Run cell** that appears to the left of the cell.
 ```
 import pandas as pd
 from tqdm.auto import tqdm
@@ -201,15 +195,15 @@ for table in (pbar := tqdm(df_tables['table'].values)):
     # save as lakehouse table
     spark.createDataFrame(df).write.mode('overwrite').saveAsTable(table)
 ```
-![](./media/image21.png)
+![](./instructions337798/image21.png)
 
-![](./media/image22.png)
+![](./instructions337798/image22.png)
 
-![](./media/image23.png)
+![](./instructions337798/image23.png)
 
-![](./media/image24.png)
+![](./instructions337798/image24.png)
 
-![](./media/image25.png)
+![](./instructions337798/image25.png)
 
 ## Task 3: Create Data agent
 
@@ -218,37 +212,37 @@ Lakehouse. You will select the required Dimension and Fact tables to
 enable the agent to answer a wide range of sales‑related analytics
 questions.
 
-1.  Now, click on **Fabric Data agent-XXXXXX** on the left-sided
+1.  Now, click on **Fabric Data agent-@lab.LabInstance.Id** on the left-sided
     navigation pane.
 
-![](./media/image26.png)
+![](./instructions337798/image26.png)
 
-2.  In the **Fabric** home page, select **+New item.**
+2.  In the **Fabric** home page, select **+New item.**
 
-![](./media/image27.png)
+![](./instructions337798/image27.png)
 
-3.  In the **Filter by item type** search box, enter **+++data agent+++** and select the **Data agent.**
+3.  In the **Filter by item type** search box, enter **+++data agent+++** and select the **Data agent.**
 
-![](./media/image28.png)
+![](./instructions337798/image28.png)
 
-4.  Enter **+++AI-agent+++** as the Data agent name and
-    select **Create**.
+4.  Enter **+++AI-agent+++** as the Data agent name and
+    select **Create**.
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image29.png)
+incorrect.](./instructions337798/image29.png)
 
-> ![](./media/image30.png)
+> ![](./instructions337798/image30.png)
 
-5.  In AI-agent page, select **Add a data source**.
+5.  In AI-agent page, select **Add a data source**.
 
-> ![](./media/image31.png)
+> ![](./instructions337798/image31.png)
 
-6.  In the **OneLake catalog** tab, select the **AI-Fabric_lakehouse
-    lakehouse** and select **Add**.
+6.  In the **OneLake catalog** tab, select the **AI-Fabric_lakehouse
+    lakehouse** and select **Add**.
 
-![](./media/image32.png)
+![](./instructions337798/image32.png)
 
-![](./media/image33.png)
+![](./instructions337798/image33.png)
 
 7.  You must then select the tables for which you want the AI skill to
     have available access.
@@ -275,7 +269,7 @@ This lab uses these tables:
 
 - FactResellerSales
 
-![](./media/image34.png)
+![](./instructions337798/image34.png)
 
 ## Task 4: Provide instructions
 
@@ -285,80 +279,80 @@ agent understand domain‑specific context and generate more accurate SQL
 responses for real‑world queries.
 
 1.  When you first ask the questions with the listed tables
-    select **factinternetsales**, the data agent answers them fairly
+    select **factinternetsales**, the data agent answers them fairly
     well.
 
-2.  For instance, for the question +++**What is the most sold product?+++**
+2.  For instance, for the question +++**What is the most sold product?+++**
 
-![](./media/image35.png)
+![](./instructions337798/image35.png)
 
-> ![](./media/image36.png)
+> ![](./instructions337798/image36.png)
 
 3.  Copy the question and SQL queries and paste them in a notepad and
     then Save the notepad to use the information in the upcoming tasks.
 
 ![A screenshot of a computer Description automatically
-generated](./media/image37.png)
+generated](./instructions337798/image37.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/image38.png)
+generated](./instructions337798/image38.png)
 
-4.  Select **FactResellerSales** and enter the following text and click
-    on the **Submit icon** as shown in the below image.
+4.  Select **FactResellerSales** and enter the following text and click
+    on the **Submit icon** as shown in the below image.
 
 **+++What is our most sold product?+++**
 
 ![A screenshot of a computer Description automatically
-generated](./media/image39.png)
+generated](./instructions337798/image39.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+generated](./instructions337798/image40.png)
 
 As you continue to experiment with queries, you should add more
 instructions.
 
-5.  Select the **dimcustomer** , enter the following text and click on
-    the **Submit icon**
+5.  Select the **dimcustomer** , enter the following text and click on
+    the **Submit icon**
 
 **+++how many active customers did we have June 1st, 2013?+++**
 
 ![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+generated](./instructions337798/image41.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/image42.png)
+generated](./instructions337798/image42.png)
 
 6.  Copy the all question and SQL queries and paste them in a notepad
     and then Save the notepad to use the information in the upcoming
     tasks.
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image43.png)
+> generated](./instructions337798/image43.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/image44.png)
+generated](./instructions337798/image44.png)
 
-7.  Select the **dimdate**, **FactInternetSales** , enter the following
-    text and click on the **Submit icon:**
+7.  Select the **dimdate**, **FactInternetSales** , enter the following
+    text and click on the **Submit icon:**
 
 **+++what are the monthly sales trends for the last year?+++**
 
 ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image45.png)
+incorrect.](./instructions337798/image45.png)
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image46.png)
+> generated](./instructions337798/image46.png)
 
-8.  Select the **dimproduct,** **FactInternetSales** , enter the
-    following text and click on the **Submit icon:**
+8.  Select the **dimproduct,** **FactInternetSales** , enter the
+    following text and click on the **Submit icon:**
 
 **+++which product category had the highest average sales price?+++**
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image47.png)
+> generated](./instructions337798/image47.png)
 
 ![A screenshot of a computer Description automatically
-generated](./media/image48.png)
+generated](./instructions337798/image48.png)
 
 Part of the problem is that "active customer" doesn't have a formal
 definition. More instructions in the notes to the model text box might
@@ -366,20 +360,20 @@ help, but users might frequently ask this question. You need to make
 sure that the AI handles the question correctly.
 
 7.  The relevant query is moderately complex, so provide an example by
-    selecting the **Example queries** button from the **Setup** pane.
+    selecting the **Example queries** button from the **Setup** pane.
 
-> ![](./media/image49.png)
+> ![](./instructions337798/image49.png)
 
-8.  In the Example queries tab, select the **Add example.**
+8.  In the Example queries tab, select the **Add example.**
 
-![](./media/image50.png)
+![](./instructions337798/image50.png)
 
 9.  Here, you should add Example queries for the lakehouse data source
     that you have created. Add the below question in the question field:
 
 **+++What is the most sold product?+++**
 
-> ![](./media/image51.png)
+> ![](./instructions337798/image51.png)
 
 10. Add the query1 that you have saved in the notepad:
 
@@ -389,17 +383,17 @@ FROM [dbo].[factinternetsales]
 GROUP BY ProductKey
 ORDER BY TotalQuantitySold DESC
 ```
-> ![](./media/image52.png)
+> ![](./instructions337798/image52.png)
 
-11. To add a new query field, click on **+Add.**
+11. To add a new query field, click on **+Add.**
 
-> ![](./media/image53.png)
+> ![](./instructions337798/image53.png)
 
 12. To add a second question in the question field:
 
 **+++What are the monthly sales trends for the last year?+++**
 
-![](./media/image54.png)
+![](./instructions337798/image54.png)
 
 13. Add the query3 that you have saved in the notepad:
 
@@ -425,17 +419,17 @@ GROUP BY
 ORDER BY
     d.MonthNumberOfYear
 ```
-> ![](./media/image55.png)
+> ![](./instructions337798/image55.png)
 
-14. To add a new query field, click on **+Add.**
+14. To add a new query field, click on **+Add.**
 
-> ![](./media/image56.png)
+> ![](./instructions337798/image56.png)
 
 15. To add a third question in the question field:
 
 +++Which product category has the highest average sales price?+++
 
-![](./media/image57.png)
+![](./instructions337798/image57.png)
 
 16. Add the query4 that you have saved in the notepad:
 
@@ -452,14 +446,14 @@ GROUP BY
 ORDER BY
     AverageSalesPrice DESC
 ```
-> ![](./media/image58.png)
+> ![](./instructions337798/image58.png)
 
 17. Add all the queries and SQL queries that you have saved in Notepad,
-    and then click on ‘**Export all’**
+    and then click on '**Export all'**
 
-> ![](./media/image59.png)
+> ![](./instructions337798/image59.png)
 
-![](./media/image60.png)
+![](./instructions337798/image60.png)
 
 ## Task 5: Use the Data agent programmatically
 
@@ -471,27 +465,27 @@ instructions that cover the kinds of questions they want to ask.
 You can use the AI skill programmatically within a Fabric notebook. To
 determine whether or not the AI skill has a published URL value.
 
-1.  In the Data agent Fabric page, in the **Home** ribbon select
-    the **Settings**.
+1.  In the Data agent Fabric page, in the **Home** ribbon select
+    the **Settings**.
 
-> ![](./media/image61.png)
+> ![](./instructions337798/image61.png)
 
 2.  Before you publish the AI skill, it doesn't have a published URL
     value, as shown in this screenshot.
 
 3.  Close the AI Skill setting.
 
-> ![](./media/image62.png)
+> ![](./instructions337798/image62.png)
 
-4.  In the **Home** ribbon, select the **Publish**.
+4.  In the **Home** ribbon, select the **Publish**.
 
-> ![](./media/image63.png)
+> ![](./instructions337798/image63.png)
 >
-> ![](./media/image64.png)
+> ![](./instructions337798/image64.png)
 
-5.  Click on the **View publishing details**
+5.  Click on the **View publishing details**
 
-> ![](./media/image65.png)
+> ![](./instructions337798/image65.png)
 
 6.  The published URL for the AI agent appears, as shown in this
     screenshot.
@@ -499,33 +493,33 @@ determine whether or not the AI skill has a published URL value.
 7.  Copy the URL and paste that in a notepad and then Save the notepad
     to use the information in the upcoming steps.
 
-> ![](./media/image66.png)
+> ![](./instructions337798/image66.png)
 
-8.  Select **Notebook1** in the left navigation pane.
+8.  Select **Notebook1** in the left navigation pane.
 
-> ![](./media/image67.png)
+> ![](./instructions337798/image67.png)
 
-9.  Use the **+ Code** icon below the cell output to add a new code cell
+9.  Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
-    the **URL**. Click on **▷ Run** button and review the output
+    the **URL**. Click on **▷ Run** button and review the output
 
 +++%pip install "openai==1.70.0"+++
 
-> ![](./media/image68.png)
+> ![](./instructions337798/image68.png)
 >
-> ![](./media/image69.png)
+> ![](./instructions337798/image69.png)
 
-10. Use the **+ Code** icon below the cell output to add a new code cell
+10. Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
-    the **URL**. Click on **▷ Run** button and review the output
+    the **URL**. Click on **▷ Run** button and review the output
 
 +++%pip install httpx==0.27.2+++
 
-> ![](./media/image70.png)
+> ![](./instructions337798/image70.png)
 
-11. Use the **+ Code** icon below the cell output to add a new code cell
+11. Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
-    the **URL**. Click on **▷ Run** button and review the output
+    the **URL**. Click on **▷ Run** button and review the output
 
 ```
 import requests
@@ -612,47 +606,46 @@ pretty_print(response)
 # Delete thread
 fabric_client.beta.threads.delete(thread_id=thread.id)
 ```
-> ![](./media/image71.png)
+> ![](./instructions337798/image71.png)
 
-![](./media/image72.png)
+![](./instructions337798/image72.png)
 
 ## **Task 6: Delete the resources**
 
-1.  Select your workspace, the **AI-Fabric-XXXX** from the left-hand
+1.  Select your workspace, the **AI-Fabric-@lab.LabInstance.Id** from the left-hand
     navigation menu. It opens the workspace item view.
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image73.png)
+> generated](./instructions337798/image73.png)
 
-2.  Select the **...** option under the workspace name and
-    select **Workspace settings**.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image74.png)
-
-3.  Select **Other** and **Remove this workspace.**
+2.  Select the **...** option under the workspace name and
+    select **Workspace settings**.
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image75.png)
+> generated](./instructions337798/image74.png)
 
-4.  Click on **Delete** in the warning that pops up.
+3.  Select **Other** and **Remove this workspace.**
 
 > ![A screenshot of a computer Description automatically
-> generated](./media/image76.png)
+> generated](./instructions337798/image75.png)
+
+4.  Click on **Delete** in the warning that pops up.
+
+> ![A screenshot of a computer Description automatically
+> generated](./instructions337798/image76.png)
 >
 > ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image77.png)
+> incorrect.](./instructions337798/image77.png)
 
 **Summary:**
 
 In this lab, you learned how to unlock the power of conversational
-analytics using Microsoft Fabric’s Data Agent. You configured a Fabric
+analytics using Microsoft Fabric's Data Agent. You configured a Fabric
 workspace, ingested structured data into a lakehouse, and set up an AI
 skill to translate natural language questions into SQL queries. You also
-enhanced the AI agent’s capabilities by providing instructions and
+enhanced the AI agent's capabilities by providing instructions and
 examples to refine query generation. Finally, you called the agent
 programmatically from a Fabric notebook, demonstrating end-to-end AI
 integration. This lab empowers you to make enterprise data more
 accessible, usable, and intelligent for business users through natural
 language and generative AI technologies.
-
