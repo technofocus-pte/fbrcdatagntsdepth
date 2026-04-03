@@ -492,7 +492,7 @@ solution.
 1.  Run the following command to set the **AZURE_ENV_DEPLOY_APP**
     environment variable to **true** before deployment.
 
-  +++ azd env set AZURE_ENV_DEPLOY_APP true+++
+  +++azd env set AZURE_ENV_DEPLOY_APP true+++
   
   ![](./media/image76.png)
 
