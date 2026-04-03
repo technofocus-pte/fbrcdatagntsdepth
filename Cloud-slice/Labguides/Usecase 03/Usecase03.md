@@ -532,8 +532,8 @@ solution.
   > ask in the app:
   >
   > For Retail sales analysis use case:
-  
-  +++Show total revenue by year for last 5 years+++.
+  >
+  > +++Show total revenue by year for last 5 years+++.
 
   ![](./media/image85.png)
   
