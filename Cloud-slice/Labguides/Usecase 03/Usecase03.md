@@ -35,7 +35,7 @@ accessibility and decision-making. The key goals include:
 
 **Establish a Unified Data Foundation in Microsoft Fabric**
 
-- Create a governed Fabric workspace with Lakehouse, Warehouse, and
+- Create a governed  workspace with Lakehouse, Warehouse, and
   semantic models.
 
 - Load and validate enterprise datasets for analysis.
@@ -175,7 +175,7 @@ reports.
 
     | Property | Value |
     |---------|-------|
-    | Name | +++Fabric agent@lab.LabInstance.Id+++ |
+    | Name | +++Fabric-agent@lab.LabInstance.Id+++ |
     | Advanced | Under **License mode**, select **Fabric** |
     | Default storage format | Small dataset storage format |
     | Template apps | Check **Develop template apps** |
