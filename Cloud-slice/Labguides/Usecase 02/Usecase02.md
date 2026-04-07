@@ -237,8 +237,7 @@ reports.
 
 > ![](./instructions339403/image30.png)
 
-Note: To find your lab instant ID, select 'Help' and copy the instant
-ID.
+> [!Note] To find your lab instant ID, select 'Help' and copy the instant ID.
 
 > ![A screenshot of a computer Description automatically
 > generated](./instructions339403/image31.png)
@@ -360,7 +359,7 @@ queries.
 3.  To test the agent, run the application and enter the sample
     questions to verify the responses.
 
-++++List products with high list price but low sales volume.+++
++++List products with high list price but low sales volume.+++
 
 ![](./instructions339403/image51.png)
 
