@@ -160,7 +160,7 @@ becomes the structured data foundation that the Data Agent will query.
     enter +++**AdventureWorksLH+++** in the **Name** field, click on
     the **Create** button and open the new lakehouse.
 
-**Note**: Ensure to remove space before **AdventureWorksLH**
+>[!Note] Ensure to remove space before **AdventureWorksLH**
 
 ![](./instructions337798/image17.png)
 
