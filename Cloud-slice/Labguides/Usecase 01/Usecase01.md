@@ -56,8 +56,7 @@ data‑driven answers instantly.
 1.  In your VM, navigate and click in the **Search bar**, type
     **Settings** and then click on **Settings** under **Best match**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./instructions337798/image1.png)
+![A screenshot of a computer Description automatically generated](./instructions337798/image1.png)
 
 2.  On Settings window, navigate and click on **Time & language**.
 
@@ -91,18 +90,18 @@ throughout the use case.
     the following URL:+++https://app.fabric.microsoft.com/+++ then press
     the **Enter** button.
 
-![](./instructions337798/image6.png)
+  ![](./instructions337798/image6.png)
 
 2.  In the **Microsoft Fabric** window, enter your credentials, and
     click on the **Submit** button.
 
-    |  |   |
-    |---|----|
-    |Username	|+++@lab.CloudPortalCredential(User1).Username+++|
-    |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
+  |  |   |
+  |---|----|
+  |Username	|+++@lab.CloudPortalCredential(User1).Username+++|
+  |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./instructions337798/image7.png)
+  ![A screenshot of a computer AI-generated content may be
+  incorrect.](./instructions337798/image7.png)
 
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
@@ -110,7 +109,7 @@ incorrect.](./instructions337798/image7.png)
 
 5.  You'll be directed to Power BI Home page.
 
-> ![](./instructions337798/image9.png)
+  ![](./instructions337798/image9.png)
 
 6.  Fabric home page, select **+New workspace** tile.
 
