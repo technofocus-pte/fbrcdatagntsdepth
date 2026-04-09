@@ -1,4 +1,4 @@
-## Usecase 03 - Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+## Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
 **Introduction**
 
 Modern organizations generate large volumes of data across multiple
@@ -35,7 +35,7 @@ accessibility and decision-making. The key goals include:
 
 **Establish a Unified Data Foundation in Microsoft Fabric**
 
-- Create a governed  workspace with Lakehouse, Warehouse, and
+- Create a governed Fabric workspace with Lakehouse, Warehouse, and
   semantic models.
 
 - Load and validate enterprise datasets for analysis.
@@ -69,7 +69,7 @@ accessibility and decision-making. The key goals include:
 
 - Test the agent in Foundry Playground with real business queries.
 
-- Demonstrate natural language–to–data retrieval workflows using Fabric
+- Demonstrate natural language-to-data retrieval workflows using Fabric
   Lakehouse datasets.
 
 - Deliver insights such as inspection pass/fail rates, averages, trends,
@@ -85,70 +85,63 @@ accessibility and decision-making. The key goals include:
 
 **Solution architecture**
 
-![Architecture Diagram](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image1.png)
+![Architecture Diagram](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image1.png)
 
 The solution combines Microsoft Fabric and Microsoft Foundry to create
 an AI solution that can answer questions using both structured data and
 unstructured documents:
 
-- **Microsoft Fabric** provides the data layer with Lakehouse,
+- **Microsoft Fabric** provides the data layer with Lakehouse,
   Warehouse, and the Fabric IQ semantic layer for natural language to
   SQL translation
 
-- **Microsoft Foundry** hosts the AI agents, including Foundry IQ for
+- **Microsoft Foundry** hosts the AI agents, including Foundry IQ for
   document retrieval and the Orchestrator Agent that orchestrates both
   capabilities
 
-- **Azure AI Services** powers the language models (GPT-4o-mini) and
+- **Azure AI Services** powers the language models (GPT-4o-mini) and
   embeddings
 
-- **Azure AI Search** stores document vectors for semantic retrieval
+- **Azure AI Search** stores document vectors for semantic retrieval
 
 ## Prerequisites
 
 - **GitHub Account: You are expected to have your own GitHub login
-  credentials.**
-    
-  >[Note] If you do not have an account, please create one by visiting:  
-  +++https://github.com/signup?user_email=&source=form-home-signup+++
+  credentials.  
+  If you do not have an account, please create one by visiting:  
+  +++https://github.com/signup?user_email=&source=form-home-signup+++**
 
 ## Task 0: Create a GitHub account
 
-In this task, you create a new **Github account** with the same tenant
+In this task, you create a new **Github account** with the same tenant
 credentials that you have used in this lab.
 
 1.  Navigate to the GitHub with this link
-    +++https://github.com/+++ and click on **Sign up** to proceed
+    +++https://github.com/+++ and click on **Sign up** to proceed
     further.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image2.png)
+	![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image2.png)
 
 2.  Now, to create a new GitHub account, enter
-    the **email**, **password** and a unique **username** and click
-    on **Continue** button.
+    the **email**, **password** and a unique **username** and click
+    on **Continue** button.
 
-    ![A screenshot of a login box AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image3.png)
+	![A screenshot of a login box AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image3.png)
 
-3.  Start the **verification** **puzzle** by following the instruction
-    on the screen. Click on **Submit.**
+3.  Start the **verification** **puzzle** by following the instruction
+    on the screen. Click on **Submit.**
 
-4.  Enter the **verification** **code** you’ve received on your mail.
+4.  Enter the **verification** **code** you've received on your mail.
 
-    ![A screenshot of a email form AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image4.png)
+	![A screenshot of a email form AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image4.png)
 
-5.  Now, with your credentials sign-in to GitHub and click on **Sign
-    in.**
+5.  Now, with your credentials sign-in to GitHub and click on **Sign in.**
 
-    ![A screenshot of a login page AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image5.png)
+	![A screenshot of a login page AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image5.png)
 
 6.  You have successfully created a new account on GitHub.
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image6.png)
+	![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image6.png)
 
 ## Task 1: Create a Fabric workspace
 
@@ -159,336 +152,365 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following
-    URL: +++https://app.fabric.microsoft.com/+++ press the **Enter** button
+    URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
     and sign in with your credentials
 
     |   |   |
     |---|---|
     | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
-    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
+    | TAP | +++@lab.CloudPortalCredential(User1).TAP+++ |
 
-2.  Fabric home page, select **+New workspace** tile.
+2.  Fabric home page, select **+New workspace** tile.
 
-    ![A screenshot of a computer Description automatically generated](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image7.png)
+	![A screenshot of a computer Description automatically generated](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image7.png)
 
-3.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
+3.  In the **Create a workspace** pane that appears on the right side,
+    enter the following details, and click on the **Apply** button.
 
     | Property | Value |
     |---------|-------|
-    | Name | +++Fabric-agent@lab.LabInstance.Id+++ |
+    | Name | +++Fabricagent@lab.LabInstance.Id+++ **(XXXXX can be Lab instance ID)** |
     | Advanced | Under **License mode**, select **Fabric** |
     | Default storage format | Small dataset storage format |
     | Template apps | Check **Develop template apps** |
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image8.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image8.png)
 
-    >[!Note] To find your lab instant ID, select 'Help' and copy the instant ID.
+    Note: To find your lab instant ID, select 'Help' and copy the instant
+    ID.
 
-    ![A screenshot of a computer Description automatically generated](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image9.png)
+	![A screenshot of a computer Description automatically generated](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image9.png)
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image10.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image10.png)
 
 4.  Wait for the deployment to complete. It takes 2-3 minutes to
     complete.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image11.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image11.png)
 
 ## Task 2: Retrieve your Fabric workspace ID
 
 You will need your workspace ID to pass as a parameter when building the
 solution.
 
-1.  Look at the URL — the workspace ID is the GUID that appears
-    after /groups/:
+1.  Look at the URL - the workspace ID is the GUID that appears
+    after /groups/:
 
 2.  Copy the **Workspace ID** from the URL (e.g.,
     https://app.fabric.microsoft.com/groups/{workspace-id}/...) and save
-    it in **Notepad** for later use
-
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image12.png)
+    it in **Notepad** for later use![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image12.png)
 
 ## Task 3: Open development environment
 
 1.  Open your browser, navigate to the address bar, type or paste the
     following URL: +++https://github.com/technofocus-pte/agnticapp-for-unified-data+++
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image13.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image13.png)
 
-2.  Click on **fork** to fork the repo. Give unique name to the repo and
-    click on **Create repo** button.
+2.  Click on **fork** to fork the repo. Give unique name to the repo and
+    click on **Create repo** button.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image14.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image15.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image14.png)
 
-3.  Click on **Code -\> Codespaces -\> Create Codespace on main**
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image15.png)
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image16.png)
+3.  Click on **Code -\> Codespaces -\> Create Codespace on main**
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image16.png)
 
 4.  Wait for the Codespaces environment to setup. It takes few minutes
     to setup completely
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image17.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image17.png) ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image18.png)
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image18.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image19.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image19.png)
 
 ## Task 4: Provision services and deploy the application to Azure and Fabric
+
+1. On the browser, go to +++portal.azure.com+++.
+
+1. Sign in with the following credentials:
+
+    | Properties  | Value |
+    | -------- | -------- |
+    | Username    | +++@lab.CloudPortalCredential(User1).Username+++|
+    | TAP | +++@lab.CloudPortalCredential(User1).AccessToken+++ |
+
+
+1. Select **Foundry**.
+
+1. Select **View All Resources**.
+
+1. Select the project asia-@lab.LabInstance.Id.
+
+1. Select **Go to Foundry Portal**.
+
+1. In the Foundry Portal, select **Models + endpoints**.
+
+1. Select **Deploy Model** then select **Deploy base model**.
+
+1. Searcxh for +++gpt-4o-mini+++.
+
+1. Select **gpt-4o-mini** then select **Confirm**.
+
+1. Select **Deploy**.
+
+1. Once the model finishes deploying, go back to **Github Codespaces**.
 
 1.  Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
-    +++azd auth login+++
+	+++azd auth login+++
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image20.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image20.png)
 
 2.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+    the code and click **Next**.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image21.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image22.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image23.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image24.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image21.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image22.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image23.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image24.png)
 
 3.  Login to Azure:
 
     +++az login+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image25.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image25.png)
 
 4.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+    the code and click **Next**.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image26.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image26.png)
 
 5.  Select your azure subscription
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image27.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image27.png)
 
 6.  Register the Microsoft Cognitive Services resource provider
     (required if not already registered on your subscription)
 
-    +++az provider register --namespace Microsoft.CognitiveServices+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image28.png)
+	+++az provider register --namespace Microsoft.CognitiveServices+++
 
-7.  Provision and deploy all the resources:
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image28.png)
 
-    >[!Alert] Due to security reasons, these resources have been pre-created for you. Please skip steps 7-9.
-    > To deploy all the necessary resources that have been created for you, the correct command would be:
-    > **azd up**
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image29.png)
+1. Enter the command +++azd env new+++.
 
-8.  You would then be asked to select below values.
+1. Enter +++Fabricagent@lab.LabInstance.Id+++ as your unique environment name.
 
-    - **To create an environment for Azure resources**,
-      enter **Fabricagent@lab.LabInstance.Id**
-    
-    - **Select an Azure Subscription to
-      use** : **@lab.CloudSubscription.Name**
-    
-    - **azureAiServiceLocation**: **Sweden Central**
-    
-    - **‘Location' infrastructure
-      parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
-    
-    - **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image30.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image31.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image32.png)
+7. Run these commands in the terminal.
 
-9.  This deployment typically takes *7-10 minutes* to provision the resources
-    in your account and set up the solution with sample data.
+    ```
+    RG="ResourceGroup1"
+    AI_NAME=$(az cognitiveservices account list -g $RG --query "[0].name" -o tsv)
+    STORAGE_NAME=$(az storage account list -g $RG --query "[0].name" -o tsv)
+    SEARCH_NAME=$(az search service list -g $RG --query "[0].name" -o tsv)
+    MI_PID=$(az identity list -g $RG --query "[?contains(name,'backend-app-mi')].principalId" -o tsv)
+    MI_UID=$(az identity list -g $RG --query "[?contains(name,'backend-app-mi')].clientId" -o tsv)
+    AI_ENDPOINT=$(az cognitiveservices account list -g $RG --query "[0].properties.endpoint" -o tsv)
+    APP_NAME="app-$SUFFIX"
+    SUB_ID=$(az account show --query id -o tsv)
+    LOCATION=$(az group show -n $RG --query location -o tsv)
+    SUFFIX=$(echo $AI_NAME | sed 's/^aisa-//')
+	
+    azd env set AZURE_AI_PROJECT_ENDPOINT https://$AI_NAME.services.ai.azure.com/api/projects/aifp-$SUFFIX
+    azd env set AZURE_ENV_NAME Fabricagent$SUFFIX
+    azd env set AZURE_LOCATION $LOCATION
+    azd env set AZURE_SUBSCRIPTION_ID $SUB_ID
+    azd env set AZURE_RESOURCE_GROUP $RG
+    azd env set SOLUTION_NAME Fabricagent$SUFFIX
+    azd env set AI_SERVICE_NAME $AI_NAME
+    azd env set AZURE_AI_AGENT_ENDPOINT $AI_ENDPOINT
+    azd env set AZURE_STORAGE_ACCOUNT_NAME $STORAGE_NAME
+    azd env set AZURE_SEARCH_SERVICE_NAME $SEARCH_NAME
+    azd env set API_PID $MI_PID
+    azd env set API_UID $MI_UID
+    azd env set API_APP_NAME $APP_NAME
+    azd env set RESOURCE_GROUP_NAME $RG
+    azd env set USE_CASE insurance
+    ```
 
-    >[!Note] This is the reason for the wait time at the start of the lab. 
 
-11. Now the deployment is complete
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image33.png)
+1. Create the table that will be used in Fabric by running this command:
+	
+    +++python3 -c "import json; ins=json.load(open('infra/scripts/fabric_scripts/data/insurance_tables.json')); ret=json.load(open('infra/scripts/fabric_scripts/data/retail_tables.json')); merged={'tables': ins.get('tables', []) + ret.get('tables', [])}; json.dump(merged, open('infra/scripts/fabric_scripts/data/tables.json', 'w'), indent=2); print('Merged', len(merged['tables']), 'tables')"+++
 
-12. Create and activate a virtual environment
+11. Create and activate a virtual environment
 
-    +++python -m venv .venv+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image34.png)
+	+++python -m venv .venv+++
 
-13. Use the top-left **menu icon** in **Visual Studio Code**, then
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image34.png)
+
+12. Use the top-left **menu icon** in **Visual Studio Code**, then
     navigate to **Terminal → New Terminal** to open a new terminal
     window in the workspace
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image35.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image36.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image35.png)
 
-14. Run the following command in the terminal to install the required
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image36.png)
+
+13. Run the following command in the terminal to install the required
     Python dependencies
 
-    +++pip install uv && uv pip install -r scripts/requirements.txt+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image37.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image38.png)
+    +++pip install uv && uv pip install -r ./scripts/requirements.txt+++
 
-15. Run the following command on the Terminal. It generates the code to
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image37.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image38.png)
+
+14. Run the following command on the Terminal. It generates the code to
     copy. Copy the code and press Enter.
 
     +++az login+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image39.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image40.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image41.png)
 
-16. Select your **Azure subscription** from the list to continue the
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image39.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image40.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image41.png)
+
+15. Select your **Azure subscription** from the list to continue the
     setup process.
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image42.png)
 
-17. Run the bash script from the output of the azd deployment. Replace
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image42.png)
+
+
+16. Run the bash script from the output of the azd deployment. Replace
     the with your Fabric workspace Id created in the previous steps. The
     script will look like the following:
 
-    +++bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh <fabric-workspaceId>+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image43.png)
+    +++bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh < fabric-workspaceId >+++
 
-18. Press Enter to start create resources
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image44.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image45.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image46.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image43.png)
 
 ## Task 5: Review the Fabric Lakehouse and Data
 
-1.  Go to your +++https://app.fabric.microsoft.com/+++ workspace
+1.  Go to your +++**https://app.fabric.microsoft.com/**+++ workspace
 
 2.  Make sure resource got deployed successfully
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image47.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image47.png)
 
 3.  Click on the **Lakehouse** to verify that the data has been
     successfully loaded.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image48.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image49.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image48.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image49.png)
 
 4.  Return to the **Codespace** to test the agent.
 
 ## Task 6: Test the agent
 
+
+1. Get the Fabric Workpace ID from the previous step and enter it as this environment variable. +++azd env set FABRIC_WORKSPACE_ID < fabric workspace id >+++
+
+1. Create the agent by entering this command +++python ./scripts/07_create_agent.py --connection-name srch-@lab.LabInstance.Id+++
+
 1.  To test the agent, run the following command in the terminal.
-    
-    +++python scripts/08_test_agent.py+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image50.png)
+
+	+++python ./scripts/08_test_agent.py+++
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image50.png)
 
 2.  Enter the sample questions +++**What is the average score from
     inspections?**+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image51.png)
-    
-    +++What constitutes a failed inspection?+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image52.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image53.png)
 
-    +++Do any inspections violate quality control standards in our Inspection Procedures?+++
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image54.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image55.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image51.png)
 
-3.  Press **Ctrl+C** to cancel the process.
+	**+++What constitutes a failed inspection?+++**
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image56.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image52.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image53.png)
+
+	+++Do any inspections violate quality control standards in our Inspection Procedures?+++
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image54.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image55.png)
+
+3.  Press **Ctrl+C** to cancel the process.
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image56.png)
 
 ## Task 7: Create a Fabric data agent
 
-1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
+1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
     workspace
 
 2.  Select "New item" → Search for "Data Agent" → select Data
     agent
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image57.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image57.png)
 
-4.  Provide a name as +++FabricDataAgent@lab.LabInstance.Id+++ and click
+4.  Provide a name as <FabricDataAgent@lab.LabInstance.Id> and click
     **Create**
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image58.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image58.png)
 
 4.  Select **Add data source** to configure a new data source.
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image59.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image59.png)
 
 5.  Select your Ontology resource for this workshop
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image60.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image61.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image60.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image61.png)
 
 6.  Click **Agent instructions** from top menu.
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image62.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image62.png)
 
 7.  Add the below agent instructions:
 
-     +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
+ +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image63.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image64.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image63.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image64.png)
 
 8.  Click Publish from the top menu and select Publish.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image65.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image66.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image67.png)
-    
-    >[!Note] The Ontology set up may take up to 15 minutes so retry after some time if you don't see good responses.
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image65.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image66.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image67.png)
+    >
+    > Note: The Ontology set up may take up to 15 minutes so retry after
+    > some time if you don't see good responses.
 
 5.  To test the agent, run the application and enter the sample
     questions to verify the responses.
 
-  +++How many tickets are high priority+++
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image68.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image69.png)
-  
-  +++What is the average score from inspections?+++
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image70.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image71.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image72.png)
+    +++How many tickets are high priority+++
 
-  +++**Show tickets grouped by status**+++
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image73.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image74.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image68.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image69.png)
+
+    +++What is the average score from inspections?+++
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image70.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image71.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image72.png)
+
+    +++**Show tickets grouped by status**+++
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image73.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image74.png)
 
 6.  Save the **Workspace ID** and **AISkills ID** in **Notepad** for
     later use
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image75.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image75.png)
 
 7.  Return to the **Codespace** to deploy and launch the application.
 
@@ -497,238 +519,231 @@ solution.
 1.  Run the following command to set the **AZURE_ENV_DEPLOY_APP**
     environment variable to **true** before deployment.
 
-  +++azd env set AZURE_ENV_DEPLOY_APP true+++
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image76.png)
+	+++ azd env set AZURE_ENV_DEPLOY_APP true+++
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image76.png)
 
 2.  Run azd up - This will provision Azure resources
 
-  +++azd up+++
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image77.png)
+	+++azd up+++
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image77.png)
 
 3.  Once the deployment has completed successfully, copy the Web app URL
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image78.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image78.png)
 
 4.  Run the following command to set up app permissions
 
- +++python scripts/00_build_solution.py --from 09+++
+	+++**python scripts/00_build_solution.py --from 09**+++
 
- ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image79.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image79.png)
 
 5.  Press Enter to start configuration
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image80.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image81.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image80.png)
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image81.png)
 
 6.  Click on the app URL
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image82.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image83.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image84.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image82.png)
 
-  > **Sample Questions**
-  >
-  > To help you get started, here are some **Sample Questions** you can
-  > ask in the app:
-  >
-  > For Retail sales analysis use case:
-  >
-  > +++Show total revenue by year for last 5 years+++.
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image83.png)
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image85.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image86.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image87.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image88.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image84.png)
+    >
+    > **Sample Questions**
+    >
+    > To help you get started, here are some **Sample Questions** you can
+    > ask in the app:
+    >
+    > For Retail sales analysis use case:
+
+    +++Show total revenue by year for last 5 years+++.
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image85.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image86.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image87.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image88.png)
 
 ## Task 9: Verify Azure Resources and Review Fabric Lakehouse Data 
 
-1.  Open a browser go to +++https://portal.azure.com+++ and sign in with
-    your cloud slice account below.
+1.  Open a browser go to +++https://portal.azure.com+++ and sign in with your cloud slice account below.
 
-2.  Select **Resource groups**
+2.  Select **Resource groups**
 
-  ![A screenshot of a computer AI-generated content may be
-  incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image89.png)
+	![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image89.png)
 
-3.  Click on your assigned **Resource group**.
+3.  Click on your assigned **Resource group**.
 
-  ![A screenshot of a computer AI-generated content may be
-  incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image90.png)
+	![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image90.png)
 
 4.  Make sure the below resource got deployed successfully
 
-- Foundry
+    - Foundry
 
-- Foundry project
+    - Foundry project
 
-- Application Insights
+    - Application Insights
 
-- Search service
+    - Search service
 
-- Azure Storage account
+    - Azure Storage account
 
-- App Service
+    - App Service
 
-- Azure Cosmos DB account
+    - Azure Cosmos DB account
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image91.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image91.png)
 
 ## Task 10: Consume Fabric data agent from Microsoft Foundry Services
 
 1.  Select **Foundry**
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image92.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image92.png)
 
-2.  On the Overview pane, click on **Go to Foundry portal**. This will
+2.  On the Overview pane, click on **Go to Foundry portal**. This will
     navigate you to the Microsoft Foundry portal.
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image93.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image94.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image93.png)
 
-Once navigated to Foundry Portal, select **Agents** from the left menu
-you will already see an agent **pre created**. If not created, then
-please click on the **+ New agent** option to get it created.
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image94.png)
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image95.png)
-  
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image96.png)
+    Once navigated to Foundry Portal, select **Agents** from the left menu
+    you will already see an agent **pre created**. If not created, then
+    please click on the **+ New agent** option to get it created.
 
-3.  Select the newly created **agent**, and a configuration pane will be
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image95.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image96.png)
+
+3.  Select the newly created **agent**, and a configuration pane will be
     opened on the right. Enter the agent name as +++**Fabric Agent**+++
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image97.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image97.png)
 
 4.  In the same agent configuration pane, scroll down and click on **+
     Add** for **Knowledge** parameter.
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image98.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image98.png)
 
-5.  In the **Add knowledge** pane, select **Microsoft Fabric** 
+5.  In the **Add knowledge** pane, select **Microsoft Fabric** 
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image99.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image99.png)
 
 6.  Click on **+ Create connection**
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image100.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image100.png)
 
 7.  Enter the custom keys, such as the **Workspace ID** and **AISkills
     ID**, that you saved in **Task 7\> Step 6**.Provide the connection
     name as **Fabric-aiskills**, and click **Connect.**
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image101.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image101.png)
 
 8.  Enter Instructions
 
-  ```
-  You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
-  
-  Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
-  - inspection_id: Unique identifier for each inspection
-  - ticket_id: Identifier associated with the inspection ticket
-  - result: Inspection outcome (Pass or Fail)
-  - score: Numeric score assigned to the inspection
-  
-  You can analyze and summarize the data to provide insights such as:
-  - Total number of inspections
-  - Number of passed and failed inspections
-  - Average, highest, and lowest inspection scores
-  - Distribution of inspection results
-  - Score trends across inspections or tickets
-  
-  When responding:
-  - Use the Fabric data source to retrieve accurate information.
-  - Provide clear summaries and insights based on the inspection results.
-  - When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
-  - Ensure answers are concise, accurate, and based only on the available dataset.
-  ```
+    ```
+    You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image102.png)
+    Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
+    - inspection_id: Unique identifier for each inspection
+    - ticket_id: Identifier associated with the inspection ticket
+    - result: Inspection outcome (Pass or Fail)
+    - score: Numeric score assigned to the inspection
 
-9.  Select, **Agents** from left menu, and then choose the **Fabric
-    Agent** agent and click on **Try in playground**.
+    You can analyze and summarize the data to provide insights such as:
+    - Total number of inspections
+    - Number of passed and failed inspections
+    - Average, highest, and lowest inspection scores
+    - Distribution of inspection results
+    - Score trends across inspections or tickets
 
-  ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image103.png)
+    When responding:
+    - Use the Fabric data source to retrieve accurate information.
+    - Provide clear summaries and insights based on the inspection results.
+    - When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
+    - Ensure answers are concise, accurate, and based only on the available dataset.
+    ```
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image102.png)
+
+9.  Select, **Agents** from left menu, and then choose the **Fabric
+    Agent** agent and click on **Try in playground**.
+
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image103.png)
 
 10. A chat panel will open where you can enter your prompts. The agent
     will now respond using the documents and datasets you've connected.
 
-Sample prompts -
+	Sample prompts -
 
-**+++What constitutes a failed inspection?+++**
+	**+++What constitutes a failed inspection?+++**
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image104.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image104.png)
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image105.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image105.png)
 
-+++**What is the total number of tickets in the system?**+++
+    +++**What is the total number of tickets in the system?**+++
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image106.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image106.png)
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image107.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image107.png)
 
-+++**Do any inspections violate quality control standards in our
-Inspection Procedures?+++**
+    +++**Do any inspections violate quality control standards in our Inspection Procedures?+++**
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image108.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image108.png)
 
-![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image109.png)
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image109.png)
 
 ## Task 11: Delete the Resources
 
-1.  To delete resources , type **Resource groups** in the Azure portal
-    search bar, navigate and click on **Resource
-    groups** under **Services**.
+1.  To delete resources , type **Resource groups** in the Azure portal
+    search bar, navigate and click on **Resource
+    groups** under **Services**.
 
-    ![A screenshot of a computer Description automatically
-    generated](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image110.png)
+    ![A screenshot of a computer Description automatically generated](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image110.png)
 
 2.  In the Resource groups page, select your resource group.
 
 3.  On the **Resource Group** home page, select all resources except
     **Fabric Capacity**, and then click **Delete**.
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image111.png)
 
-4.  In the **Delete Resources** pane that appears on the right side,
-    navigate to **Enter “delete” to confirm deletion** field, then click
-    on the **Delete** button
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image112.png)
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image113.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image111.png)
 
-9.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
+4.  In the **Delete Resources** pane that appears on the right side,
+    navigate to **Enter "delete" to confirm deletion** field, then click
+    on the **Delete** button
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image112.png)
+
+    ![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image113.png)
+
+9.  Go to your +++ https://app.fabric.microsoft.com/+++ Microsoft Fabric
     workspace
 
-10. Select the **...** option under the workspace name and
-    select **Workspace settings**.
+10. Select the **...** option under the workspace name and
+    select **Workspace settings**.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image114.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image114.png)
 
-11. Select **General** and **Remove this workspace.**
+11. Select **General** and **Remove this workspace.**
 
-    ![A screenshot of a computer AI-generated content may be
-incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image115.png)
+	![A screenshot of a computer AI-generated content may be incorrect.](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image115.png)
 
-12. Click on **Delete** in the warning that pops up.
+12. Click on **Delete** in the warning that pops up.
 
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image116.png)
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image116.png)
 
 13. Wait for a notification that the Workspace has been deleted, before
     proceeding to the next lab.
-    
-    ![](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image117.png)
-    
 
+	![](https://raw.githubusercontent.com/AustinPriesel-Skillable/DPDP-090-fbrcdatagntsdepth/refs/heads/main/Cloud-slice/Labguides/Usecase%2003/media/image117.png)
+>
 > **Summary**
 >
 > This use case demonstrates how organizations can build **intelligent,
@@ -741,17 +756,16 @@ incorrect.](https://raw.githubusercontent.com/technofocus-pte/fbrcdatagntsdepth/
 > with enterprise datasets using **natural language queries** instead of
 > writing complex SQL or manually analyzing multiple data sources. The
 > AI agent retrieves relevant data, performs analysis, and generates
-insights such as averages, trends, summaries, and grouped results.
+> insights such as averages, trends, summaries, and grouped results.
 >
 > The solution also provisions supporting Azure services, including AI
 > services, search, storage, and web applications, enabling a complete
 > **end-to-end agentic application architecture**. This allows
 > organizations to combine **structured enterprise data with AI
 > capabilities** to deliver conversational analytics and automated
-insights.
+> insights.
 >
 > Overall, the use case highlights how **agentic AI applications** built
 > on a unified data platform can simplify data access, accelerate
 > analytics, and support faster, data-driven decision-making for both
 > technical and non-technical users.
-
